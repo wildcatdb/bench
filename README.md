@@ -163,12 +163,11 @@ Database Stats:
 │ Active Memtable Size       : 1160000             │
 │ Active Memtable Entries    : 10000               │
 │ Active Transactions        : 0                   │
-│ Oldest Read Timestamp      : 0                   │
 │ WAL Files                  : 0                   │
 │ Total SSTables             : 0                   │
 │ Total Entries              : 10000               │
 └──────────────────────────────────────────────────┘
-Completed fillseq: 195080.78 ops/sec
+Completed fillseq: 187359.11 ops/sec
 
 Running benchmark: fillprefixed
 Database Stats:
@@ -209,12 +208,11 @@ Database Stats:
 │ Active Memtable Size       : 1160580             │
 │ Active Memtable Entries    : 10005               │
 │ Active Transactions        : 0                   │
-│ Oldest Read Timestamp      : 0                   │
 │ WAL Files                  : 0                   │
 │ Total SSTables             : 0                   │
 │ Total Entries              : 10005               │
 └──────────────────────────────────────────────────┘
-Completed fillprefixed: 232962.31 ops/sec
+Completed fillprefixed: 241326.17 ops/sec
 
 Running benchmark: readseq
 Database Stats:
@@ -255,12 +253,11 @@ Database Stats:
 │ Active Memtable Size       : 1160580             │
 │ Active Memtable Entries    : 10005               │
 │ Active Transactions        : 0                   │
-│ Oldest Read Timestamp      : 0                   │
 │ WAL Files                  : 0                   │
 │ Total SSTables             : 0                   │
 │ Total Entries              : 10005               │
 └──────────────────────────────────────────────────┘
-Completed readseq: 1857008.14 ops/sec
+Completed readseq: 1820140.95 ops/sec
 
 Running benchmark: readrandom
 Database Stats:
@@ -301,12 +298,11 @@ Database Stats:
 │ Active Memtable Size       : 1160580             │
 │ Active Memtable Entries    : 10005               │
 │ Active Transactions        : 0                   │
-│ Oldest Read Timestamp      : 0                   │
 │ WAL Files                  : 0                   │
 │ Total SSTables             : 0                   │
 │ Total Entries              : 10005               │
 └──────────────────────────────────────────────────┘
-Completed readrandom: 4235972.47 ops/sec
+Completed readrandom: 2725031.76 ops/sec
 
 Running benchmark: iterseq
 Database Stats:
@@ -347,12 +343,11 @@ Database Stats:
 │ Active Memtable Size       : 1160580             │
 │ Active Memtable Entries    : 10005               │
 │ Active Transactions        : 0                   │
-│ Oldest Read Timestamp      : 0                   │
 │ WAL Files                  : 0                   │
 │ Total SSTables             : 0                   │
 │ Total Entries              : 10005               │
 └──────────────────────────────────────────────────┘
-Completed iterseq: 9533024.78 ops/sec
+Completed iterseq: 3098757.40 ops/sec
 
 Running benchmark: iterrandom
 Database Stats:
@@ -393,12 +388,11 @@ Database Stats:
 │ Active Memtable Size       : 1160580             │
 │ Active Memtable Entries    : 10005               │
 │ Active Transactions        : 0                   │
-│ Oldest Read Timestamp      : 0                   │
 │ WAL Files                  : 0                   │
 │ Total SSTables             : 0                   │
 │ Total Entries              : 10005               │
 └──────────────────────────────────────────────────┘
-Completed iterrandom: 67455.31 ops/sec
+Completed iterrandom: 72778.46 ops/sec
 
 Running benchmark: iterprefix
 Database Stats:
@@ -439,12 +433,11 @@ Database Stats:
 │ Active Memtable Size       : 1160580             │
 │ Active Memtable Entries    : 10005               │
 │ Active Transactions        : 0                   │
-│ Oldest Read Timestamp      : 0                   │
 │ WAL Files                  : 0                   │
 │ Total SSTables             : 0                   │
 │ Total Entries              : 10005               │
 └──────────────────────────────────────────────────┘
-Completed iterprefix: 1197568.94 ops/sec
+Completed iterprefix: 1260191.80 ops/sec
 
 Running benchmark: concurrent_writers
 Database Stats:
@@ -485,12 +478,11 @@ Database Stats:
 │ Active Memtable Size       : 1160580             │
 │ Active Memtable Entries    : 10005               │
 │ Active Transactions        : 0                   │
-│ Oldest Read Timestamp      : 0                   │
 │ WAL Files                  : 0                   │
 │ Total SSTables             : 0                   │
 │ Total Entries              : 10005               │
 └──────────────────────────────────────────────────┘
-Completed concurrent_writers: 233548.24 ops/sec
+Completed concurrent_writers: 233744.08 ops/sec
 
 Running benchmark: high_contention_writes
 Database Stats:
@@ -531,12 +523,11 @@ Database Stats:
 │ Active Memtable Size       : 1160580             │
 │ Active Memtable Entries    : 10005               │
 │ Active Transactions        : 0                   │
-│ Oldest Read Timestamp      : 0                   │
 │ WAL Files                  : 0                   │
 │ Total SSTables             : 0                   │
 │ Total Entries              : 10005               │
 └──────────────────────────────────────────────────┘
-Completed high_contention_writes: 234198.95 ops/sec
+Completed high_contention_writes: 245555.90 ops/sec
 
 Running benchmark: batch_concurrent_writes
 Database Stats:
@@ -577,39 +568,39 @@ Database Stats:
 │ Active Memtable Size       : 1160580             │
 │ Active Memtable Entries    : 10005               │
 │ Active Transactions        : 0                   │
-│ Oldest Read Timestamp      : 0                   │
 │ WAL Files                  : 0                   │
 │ Total SSTables             : 0                   │
 │ Total Entries              : 10005               │
 └──────────────────────────────────────────────────┘
-Completed batch_concurrent_writes: 240140.76 ops/sec
+Completed batch_concurrent_writes: 230538.71 ops/sec
 
 
 Benchmark Results
 =================
 Test                               Ops      Ops/sec          P50          P95          P99          Max   Errors
 ----                               ---      -------          ---          ---          ---          ---   ------
-fillseq                          10000    195080.78       43.3μs      232.8μs      585.6μs        2.7ms        0
-fillprefixed                     10000    232962.31       44.3μs      195.9μs      340.3μs      790.5μs        0
-readseq                          10000   1857008.14        1.6μs        7.0μs       63.9μs      270.0μs        0
-readrandom                       10000   4235972.47        1.8μs        3.6μs        5.6μs       23.6μs        0
-iterseq                          10000   9533024.78        1.0ms        1.0ms        1.0ms        1.0ms        0
-iterrandom                         100     67455.31       13.3μs       21.9μs       35.5μs       35.5μs        0
-iterprefix                         200   1197568.94        656ns        1.0μs        5.5μs        6.5μs        0
-concurrent_writers               10000    233548.24       41.8μs      192.8μs      347.6μs      904.1μs        0
-high_contention_writes           10000    234198.95       39.6μs      201.6μs      350.3μs        1.2ms        0
-batch_concurrent_writes          10000    240140.76       43.7μs      188.9μs      310.3μs      868.2μs        0
+fillseq                          10000    187359.11       46.9μs      254.6μs      557.8μs        2.0ms        0
+fillprefixed                     10000    241326.17       42.6μs      190.8μs      296.7μs      769.4μs        0
+readseq                          10000   1820140.95        1.5μs       22.3μs       73.9μs      322.4μs        0
+readrandom                       10000   2725031.76        2.5μs        6.2μs        9.3μs      840.3μs        0
+iterseq                          10000   3098757.40        3.2ms        3.2ms        3.2ms        3.2ms        0
+iterrandom                         100     72778.46       12.7μs       19.2μs       24.5μs       24.5μs        0
+iterprefix                         200   1260191.80        617ns        1.1μs        1.7μs        7.1μs        0
+concurrent_writers               10000    233744.08       44.4μs      191.6μs      325.8μs      743.0μs        0
+high_contention_writes           10000    245555.90       40.6μs      184.7μs      312.1μs      874.7μs        0
+batch_concurrent_writes          10000    230538.71       45.3μs      195.8μs      343.8μs      744.6μs        0
 
 Summary
 =========================
 Total Operations: 80300
-Total Duration: 231.789097ms
-Average Ops/sec: 346435.62
+Total Duration: 235.617155ms
+Average Ops/sec: 340807.10
 Total Bytes Read: 4.4 MB
 Total Bytes Written: 5.5 MB
-Read Throughput: 19.2 MB/sec
-Write Throughput: 23.9 MB/sec
+Read Throughput: 18.9 MB/sec
+Write Throughput: 23.5 MB/sec
 Cleaned up database directory: /tmp/wildcat_bench
 
 Process finished with the exit code 0
+
 ```
