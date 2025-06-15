@@ -27,7 +27,6 @@
 *.su
 *.idb
 *.pdb
-*.mod*
 *.cmd
 .tmp_versions/
 modules.order

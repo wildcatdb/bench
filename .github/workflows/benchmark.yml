@@ -1,0 +1,57 @@
+name: Wildcat Benchmark
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+  workflow_dispatch:
+
+jobs:
+  benchmark:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Go
+        uses: actions/setup-go@v4
+        with:
+          go-version: '1.24'
+
+      - name: Cache Go modules
+        uses: actions/cache@v3
+        with:
+          path: |
+            ~/.cache/go-build
+            ~/go/pkg/mod
+          key: ${{ runner.os }}-go-${{ hashFiles('**/go.sum') }}
+          restore-keys: |
+            ${{ runner.os }}-go-
+
+      - name: Download deps
+        run: go mod tidy
+
+      - name: Build bench tool
+        run: go build -o bench main.go
+
+      - name: Run fast bench
+        run: |
+          ./bench \
+            -num=1000 \
+            -threads=2 \
+            -key_size=16 \
+            -value_size=100 \
+            -benchmarks="fillseq,readseq,readrandom" \
+            -cleanup=true \
+            -stats=false
+
+      - name: Run concurrent bench
+        run: |
+          ./bench \
+            -num=500 \
+            -threads=4 \
+            -benchmarks="concurrent_writers,high_contention_writes" \
+            -cleanup=true \
+            -stats=false
