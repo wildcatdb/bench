@@ -31,7 +31,7 @@ jobs:
             ${{ runner.os }}-go-
 
       - name: Download deps
-        run: go mod download
+        run: go get .
 
       - name: Build bench tool
         run: go build -o bench main.go
