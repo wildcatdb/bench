@@ -539,6 +539,17 @@ func runFillPrefixed(db *wildcat.DB, config *BenchmarkConfig, tracker *LatencyTr
 func runFillRandom(db *wildcat.DB, config *BenchmarkConfig, tracker *LatencyTracker,
 	opsCompleted, bytesWritten, errors *int64) {
 
+	indices := make([]int64, config.NumOperations)
+	for i := int64(0); i < config.NumOperations; i++ {
+		indices[i] = i
+	}
+
+	rng := rand.New(rand.NewSource(config.Seed))
+	for i := len(indices) - 1; i > 0; i-- {
+		j := rng.Intn(i + 1)
+		indices[i], indices[j] = indices[j], indices[i]
+	}
+
 	var wg sync.WaitGroup
 	opsPerThread := config.NumOperations / int64(config.NumThreads)
 
@@ -554,8 +565,8 @@ func runFillRandom(db *wildcat.DB, config *BenchmarkConfig, tracker *LatencyTrac
 			}
 
 			for i := start; i < end; i++ {
-				keyIndex := (i*1103515245 + 12345) % config.ExistingKeys
-				key := generateKey(keyIndex, config.KeySize, "random")
+				keyIndex := indices[i]
+				key := generateKey(keyIndex, config.KeySize, config.KeyDistribution)
 				value := generateValue(config.ValueSize, config.CompressibleData)
 
 				startTime := time.Now()
