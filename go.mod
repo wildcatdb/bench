@@ -2,7 +2,7 @@ module bench
 
 go 1.24
 
-require github.com/wildcatdb/wildcat/v2 v2.3.0
+require github.com/wildcatdb/wildcat/v2 v2.3.2
 
 require (
 	go.mongodb.org/mongo-driver v1.17.3 // indirect
